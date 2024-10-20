@@ -1,0 +1,19 @@
+<%- include("partials/header"); -%>
+
+<h1>Home</h1>
+<p><%= startingContent %></p>
+<button onclick="window.location.href='/compose';" class="post-btn">
+  New post
+</button>
+<div class="post-container">
+  <%posts.forEach(function(post){%>
+  <div class="post-div">
+    <h1 class="post-title"><%=post.title%></h1>
+    <p class="post-text">
+      <%=post.body.slice(0,99) +"..."%>
+      <a href="/posts/<%=post.title%>">Read More</a>
+    </p>
+  </div>
+  <% });%>
+</div>
+<%- include("partials/footer"); -%>
